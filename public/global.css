@@ -1,0 +1,90 @@
+:root {
+  --g-orange: #F7941E;
+  --g-lt-blue: #E1F4FD;
+  --g-dk-blue: #284666;
+  --g-brt-blue: #14C0F3;
+  --g-gray: #E8E7E3;
+  --g-ivory: #F6F1EB;
+
+  --g-dice-ability: #41AD49;
+  --g-dice-boost: #72CDDC;
+  --g-dice-proficiency: #FFE800;
+  --g-dice-difficulty: #6C2A84;
+  --g-dice-challenge: #7D1821;
+  --g-dice-setback: #000000;
+}
+
+@font-face {
+  font-family: 'Genesys';
+  src: url('fonts/genesys/genesys-webfont.woff2') format('woff2'),
+       url('fonts/genesys/genesys-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  position: relative;
+  width: 100%;
+  /* height: 100%; */
+}
+
+body {
+  color: #333;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  background-color: var(--g-ivory);
+}
+
+a {
+  color: rgb(0,100,200);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: rgb(0,80,160);
+}
+
+label {
+  display: block;
+}
+
+input, button, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0.4em;
+  margin: 0 0 0.5em 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+
+input:disabled {
+  color: #ccc;
+}
+
+input[type="range"] {
+  height: 0;
+}
+
+button {
+  color: #333;
+  background-color: #f4f4f4;
+  outline: none;
+}
+
+button:active {
+  background-color: #ddd;
+}
+
+button:focus {
+  border-color: #666;
+}
