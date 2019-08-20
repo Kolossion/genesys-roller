@@ -1,5 +1,6 @@
 <script>
   import { selectedDice } from '../stores.js';
+  import DiceActions from './DiceActions.svelte';
 
   function handleDiceAdd(e) {
     selectedDice.update(dice => {
@@ -7,26 +8,27 @@
     });
   }
 
+
 </script>
 
 <style>
   .dice-selector {
-    position: fixed;
+    position: absolute;
     bottom: 0;
-    height: 40vh;
+    height: 175px;
     background-color: var(--g-gray);
     width: 100%;
     display: flex;
     flex-direction: column;
   }
 
-  .selector-header {
+  /* .selector-header {
     background-color: var(--g-orange);
     color: white;
     font-weight: bold;
     padding: 5px;
     flex: 0 0 20px;
-  }
+  } */
 
   .dice-buttons {
     display: flex;
@@ -35,15 +37,19 @@
     height: 100%;
   }
 
+
   .dice-button {
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 10%;
+    width: 16.667%;
     line-height: 100%;
     cursor: pointer;
+    margin-bottom: 10px;
   }
+
+
 
   #ability { background-color: var(--g-dice-ability); }
   #proficiency { background-color: var(--g-dice-proficiency); }
@@ -67,9 +73,9 @@
 
 <!-- markup (zero or more items) goes here -->
 <div class="dice-selector">
-  <div class="selector-header">
+  <!-- <div class="selector-header">
     Dice
-  </div>
+  </div> -->
   <div class="dice-buttons">
     <div class="dice-button" id="ability" on:click={handleDiceAdd}>Ability</div>
     <div class="dice-button" id="proficiency" on:click={handleDiceAdd}>Proficiency</div>
@@ -78,4 +84,5 @@
     <div class="dice-button" id="challenge" on:click={handleDiceAdd}>Challenge</div>
     <div class="dice-button" id="setback" on:click={handleDiceAdd}>Setback</div>
   </div>
+  <DiceActions />
 </div>

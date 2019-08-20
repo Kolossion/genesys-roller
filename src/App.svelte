@@ -4,6 +4,8 @@
   import { selectedDice } from './stores';
   import DiceSelector from './components/DiceSelector.svelte';
   import GenesysIcon from './components/GenesysIcon.svelte';
+  import DicePool from './components/DicePool.svelte';
+  import DiceRolls from './components/DiceRolls.svelte';
 
   let chosenDice;
 
@@ -13,22 +15,26 @@
 </script>
 
 <style>
-  h1 {
-    color: purple;
+  .roller-app {
+    max-width: 800px;
+    height: 100%;
+    position: relative;
+    margin: auto;
   }
 </style>
 
 <div class="roller-app">
   <!-- <DiceHistory /> -->
-  <DiceSelector />
 
-  <h1>Hello {name}!</h1>
-  <div>{chosenDice}</div>
-  <p>blah</p>
-  <GenesysIcon name="advantage" />
+  <!-- <div>{chosenDice}</div> -->
+  <!-- <GenesysIcon name="advantage" />
   <GenesysIcon name="success" />
   <GenesysIcon name="triumph" />
   <GenesysIcon name="threat" />
   <GenesysIcon name="failure" />
-  <GenesysIcon name="despair" />
+  <GenesysIcon name="despair" /> -->
+  <DicePool dice={chosenDice}/>
+  <DiceRolls />
+
+  <DiceSelector />
 </div>

@@ -1,0 +1,53 @@
+<script>
+  import { selectedDice, rolls } from '../stores.js';
+  import { rollDie } from '../lib/dice.js';
+
+  let chosenDice;
+
+  const selectedDiceUnsub = selectedDice.subscribe(value => {
+    chosenDice = value;
+  })
+
+  function rollDice() {
+    let results = []
+
+    chosenDice.forEach((die) => {
+      results.push(rollDie(die))
+    })
+
+    results = results.join('').split('')
+
+    rolls.update((val) => { val.push(results); return val })
+
+    console.log("RESULTS", results)
+    console.log("ROLLS", rolls)
+  }
+
+  function resetDice(e) {
+    selectedDice.update(dice => {
+      return []
+    })
+  }
+
+
+</script>
+
+<style>
+  .dice-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .action-button {
+    width: 50%;
+    background-color: var(--g-dk-blue);
+    color: white;
+    font-weight: bold;
+  }
+</style>
+
+<div class="dice-actions">
+  <button class="action-button" on:click={resetDice}>Reset</button>
+  <button class="action-button" on:click={rollDice}>Roll</button>
+</div>

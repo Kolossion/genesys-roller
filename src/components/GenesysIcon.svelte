@@ -1,5 +1,6 @@
 <script>
   export let name;
+  export let icon;
 
   const iconMap = {
     'success': 's',
@@ -21,4 +22,4 @@
   }
 </style>
 
-<i class="genesys-icon">{iconChar}</i>
+<i class="genesys-icon">{ name ? iconChar : icon }</i>
