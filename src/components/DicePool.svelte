@@ -1,5 +1,7 @@
 <script>
   export let dice;
+
+  import { fade } from 'svelte/transition';
 </script>
 
 <style>
@@ -27,6 +29,7 @@
     color: var(--g-dk-blue);
     text-transform: uppercase;
     font-family: 'Oswald', sans-serif;
+    z-index: 2;
   }
 
   .dice-symbols {
@@ -41,6 +44,8 @@
 <div class="dice-pool">
   <div class="dice-box">
     <p>Dice Pool</p>
-    <div class="dice-symbols">{dice}</div>
+    <div transition:fade={{duration: 200}} class="dice-symbols">
+      {dice}
+    </div>
   </div>
 </div>

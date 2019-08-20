@@ -17,10 +17,8 @@
 
     results = results.join('').split('')
 
-    rolls.update((val) => { val.push(results); return val })
+    rolls.update((val) => { val.push({result: results, pool: chosenDice.slice()}); return val })
 
-    console.log("RESULTS", results)
-    console.log("ROLLS", rolls)
   }
 
   function resetDice(e) {
