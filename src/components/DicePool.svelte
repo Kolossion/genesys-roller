@@ -2,12 +2,11 @@
   export let dice;
 
   import { fade } from 'svelte/transition';
+  import DiceIcon from './DiceIcon.svelte'
 </script>
 
 <style>
-  /* your styles go here */
   .dice-box {
-    /* background-color: rgba(0,0,0,0.2); */
     background-color: var(--g-gray);
     width: 100%;
     height: 100px;
@@ -45,7 +44,9 @@
   <div class="dice-box">
     <p>Dice Pool</p>
     <div transition:fade={{duration: 200}} class="dice-symbols">
-      {dice}
+      {#each dice as die}
+        <DiceIcon name={die} />
+      {/each}
     </div>
   </div>
 </div>

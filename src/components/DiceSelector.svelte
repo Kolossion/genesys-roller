@@ -4,7 +4,7 @@
 
   function handleDiceAdd(e) {
     selectedDice.update(dice => {
-      return dice.concat(e.target.id);
+      return dice.concat(e.target.id).sort();
     });
   }
 
@@ -22,21 +22,12 @@
     flex-direction: column;
   }
 
-  /* .selector-header {
-    background-color: var(--g-orange);
-    color: white;
-    font-weight: bold;
-    padding: 5px;
-    flex: 0 0 20px;
-  } */
-
   .dice-buttons {
     display: flex;
     align-items: center;
     justify-content: space-around;
     height: 100%;
   }
-
 
   .dice-button {
     height: 100%;
@@ -55,8 +46,6 @@
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none;
   }
-
-
 
   #ability { background-color: var(--g-dice-ability); }
   #proficiency { background-color: var(--g-dice-proficiency); }
