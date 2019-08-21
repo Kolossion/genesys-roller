@@ -2,14 +2,19 @@
   import { rolls } from '../stores.js';
   import { fade } from 'svelte/transition';
   import ResultList from './ResultList.svelte';
+  import { afterUpdate } from 'svelte';
   // your script goes here
   let rollHistory
+  let rollPane
 
   const rollsUnsub = rolls.subscribe((value) => {
     rollHistory = value
+    // var scroller = document.getElementById("rolls-table");
   })
 
-  console.log(rollHistory)
+  afterUpdate(() => {
+    rollPane.scrollTop = rollPane.scrollHeight;
+  })
 </script>
 
 <style>
@@ -28,6 +33,10 @@
     border-collapse: collapse;
   }
 
+  .rolls-table tbody tr {
+    height: 48px;
+  }
+
   .rolls-table thead {
     background-color: var(--g-orange);
     color: white;
@@ -41,7 +50,7 @@
 </style>
 
 <!-- markup (zero or more items) goes here -->
-<div class="dice-rolls">
+<div class="dice-rolls" bind:this={rollPane}>
   <table class="rolls-table">
     <thead>
       <tr>

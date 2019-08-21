@@ -1,6 +1,6 @@
 <script>
   import { selectedDice, rolls } from '../stores.js';
-  import { rollDie } from '../lib/dice.js';
+  import { rollDie, consolidateResults } from '../lib/dice.js';
 
   let chosenDice;
 
@@ -17,8 +17,14 @@
 
     results = results.join('').split('')
 
-    rolls.update((val) => { val.push({result: results, pool: chosenDice.slice()}); return val })
-
+    rolls.update((val) => { 
+      val.push({
+        result: consolidateResults(results),
+        rawResult: results,
+        pool: chosenDice.slice()
+      });
+      return val
+    })
   }
 
   function resetDice(e) {
