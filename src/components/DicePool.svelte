@@ -1,8 +1,19 @@
 <script>
   export let dice;
 
+  import pullAt from 'lodash/pullAt';
   import { fade } from 'svelte/transition';
   import DiceIcon from './DiceIcon.svelte'
+  import { selectedDice } from '../stores.js';
+
+  function handleRemoveDie(i) {
+    return (e) => {
+      selectedDice.update((val) => {
+        pullAt(val, i)
+        return val
+      })
+    }
+  }
 </script>
 
 <style>
@@ -44,8 +55,10 @@
   <div class="dice-box">
     <p>Dice Pool</p>
     <div transition:fade={{duration: 200}} class="dice-symbols">
-      {#each dice as die}
-        <DiceIcon name={die} />
+      {#each dice as die, index}
+        <span on:click={handleRemoveDie(index)}>
+          <DiceIcon name={die} />
+        </span>
       {/each}
     </div>
   </div>
