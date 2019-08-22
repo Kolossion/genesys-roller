@@ -22,5 +22,4 @@
 <style>
 </style>
 
-<!-- markup (zero or more items) goes here -->
-<img src={getIcon(name)} alt={name} width={width} height={height} transition:fade={{duration: 200}} />
+<img src={getIcon(name)} alt={name} width={width} height={height} in:fade={{duration: 200}} />

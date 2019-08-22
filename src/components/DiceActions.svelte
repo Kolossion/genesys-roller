@@ -32,8 +32,6 @@
       return []
     })
   }
-
-
 </script>
 
 <style>
@@ -52,6 +50,6 @@
 </style>
 
 <div class="dice-actions">
-  <button class="action-button" on:click={resetDice}>Reset</button>
+  <button class="action-button" on:click={resetDice}>Clear Pool</button>
   <button class="action-button" on:click={rollDice}>Roll</button>
 </div>

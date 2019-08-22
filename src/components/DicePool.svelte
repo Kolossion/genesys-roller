@@ -1,10 +1,14 @@
 <script>
-  export let dice;
-
   import pullAt from 'lodash/pullAt';
   import { fade } from 'svelte/transition';
   import DiceIcon from './DiceIcon.svelte'
   import { selectedDice } from '../stores.js';
+
+  let chosenDice;
+
+  const selectedDiceUnsub = selectedDice.subscribe(value => {
+    chosenDice = value;
+  })
 
   function handleRemoveDie(i) {
     return (e) => {
@@ -49,14 +53,18 @@
     justify-content: center;
     align-items: center;
   }
+
+  .dice-pool-icon {
+    cursor: pointer;
+  }
 </style>
 
 <div class="dice-pool">
   <div class="dice-box">
     <p>Dice Pool</p>
-    <div transition:fade={{duration: 200}} class="dice-symbols">
-      {#each dice as die, index}
-        <span on:click={handleRemoveDie(index)}>
+    <div class="dice-symbols">
+      {#each chosenDice as die, index}
+        <span class="dice-pool-icon" on:click={handleRemoveDie(index)}>
           <DiceIcon name={die} />
         </span>
       {/each}

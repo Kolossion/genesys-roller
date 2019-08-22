@@ -24,17 +24,7 @@
 </style>
 
 <div class="roller-app">
-  <!-- <DiceHistory /> -->
-
-  <!-- <div>{chosenDice}</div> -->
-  <!-- <GenesysIcon name="advantage" />
-  <GenesysIcon name="success" />
-  <GenesysIcon name="triumph" />
-  <GenesysIcon name="threat" />
-  <GenesysIcon name="failure" />
-  <GenesysIcon name="despair" /> -->
-  <DicePool dice={chosenDice}/>
+  <DicePool />
   <DiceRolls />
-
   <DiceSelector />
 </div>

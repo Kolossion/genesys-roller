@@ -1,3 +1,12 @@
+export const DICE_TYPES = [
+  'ability',
+  'proficiency',
+  'boost',
+  'difficulty',
+  'challenge',
+  'setback',
+]
+
 const BOOST = [ 
   '',
   '',
@@ -96,8 +105,6 @@ const countResults = (results) => {
 export const consolidateResults = (results) => {
   let resultCounts = countResults(results)
 
-  console.log("BEFORE", resultCounts)
-  console.log("BEFORE", results)
   let ahMin = Math.min(resultCounts.a, resultCounts.h);
   resultCounts.a -= ahMin
   resultCounts.h -= ahMin
@@ -105,8 +112,6 @@ export const consolidateResults = (results) => {
   let fsMin = Math.min(resultCounts.s, resultCounts.f)
   resultCounts.s -= fsMin
   resultCounts.f -= fsMin
-
-  console.log("AFTER", resultCounts)
   
   let newResults = []
   Object.keys(resultCounts).forEach((symbol) => {
@@ -116,7 +121,6 @@ export const consolidateResults = (results) => {
     }
   })
 
-  console.log("AFTER", newResults)
   return newResults
 }
 
@@ -127,4 +131,8 @@ export const rollDie = (type) => {
   
   let rollIndex = Math.floor(Math.random() * diceMap.length)
   return diceMap[rollIndex]
+}
+
+export const diceSort = (a, b) => {
+  return DICE_TYPES.indexOf(a) - DICE_TYPES.indexOf(b)
 }

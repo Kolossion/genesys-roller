@@ -48,6 +48,10 @@
   .rolls-table tbody tr:nth-child(even) {
     background-color: var(--g-lt-blue);
   }
+
+  .rolls-table tbody tr:nth-child(odd) {
+    background-color: white;
+  }
 </style>
 
 <div class="dice-rolls" bind:this={rollPane}>
